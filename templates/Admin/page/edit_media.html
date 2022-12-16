@@ -1,0 +1,105 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Edit Social Media | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-columns" aria-hidden="true"></i><a href="{% url 'manage_media' %}">Manage Social
+                        Media</a></li>
+                <li><a href="#">Edit Social Media</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <div class="row animated fadeInUp">
+        <!--MAX LENGTH-->
+        <div class="col-md-2"></div>
+        <div class="col-sm-6 col-md-7 ">
+            <h4 class="section-subtitle"><b>Edit Social Media</b></h4>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert {{message.tags}} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> {{message}}</strong>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="" method="post" action="">
+                                {% csrf_token %}
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Facebook Link</label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="facebook"
+                                        value="{{data.facebook}}" maxlength="60">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">60</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Twitter Link</label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="twitter"
+                                        value="{{data.twitter}}" maxlength="60">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">60</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Instagram Link</label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="instagram"
+                                        value="{{data.instagram}}" maxlength="60">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to<span class="code">60</span></span>
+                                </div>
+
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Linkedin Link</label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="linkedin"
+                                        value="{{data.linkedin}}" maxlength="60">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to<span class="code">60</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Dribbble Link</label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="dribbble"
+                                        value="{{data.dribbble}}" maxlength="60">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to<span class="code">60</span></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Edit Media</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--INPUT MASK-->
+
+
+    {% endblock %}

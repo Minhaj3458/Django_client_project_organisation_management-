@@ -1,0 +1,106 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Update Donate | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-columns" aria-hidden="true"></i><a href="{% url 'manage_donate_us' %}">Manage Donate
+                        Us</a></li>
+                <li><a href="#">Edit Donate </a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <div class="row animated fadeInUp">
+        <!--MAX LENGTH-->
+        <div class="col-md-2"></div>
+        <div class="col-sm-6 col-md-7 ">
+            <h4 class="section-subtitle"><b>Edit Donate Us</b></h4>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert {{message.tags}} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> {{message}}</strong>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="" method="post" action="">
+                                {% csrf_token %}
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Full Name</label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="full_name"
+                                        value="{{data.full_name}}" maxlength="60">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">60</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Email</label>
+                                    <input type="email" class="form-control" id="inputMaxLength" name="email"
+                                        value="{{data.email}}" maxlength="60">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">60</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Phone</label>
+                                    <input type="number" class="form-control" id="inputMaxLength" name="number"
+                                        value="{{data.number}}" maxlength="15">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to<span class="code">15</span></span>
+                                </div>
+
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Bank slip no / Transaction id
+                                    </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="bank_sl_tran"
+                                        value="{{data.bank_sl_tran}}" maxlength="60">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to<span class="code">60</span></span>
+                                </div>
+                                <!--TEXTAREA max length-->
+                                <div class="form-group">
+                                    <label for="textareaMaxLength" class="control-label"> Message</label>
+                                    <textarea class="form-control" rows="3" id="textareaMaxLength" name="message"
+                                        maxlength="100" required> {{data.message}}</textarea>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span id="characterCount">0</span> /<span class="code">100</span></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Update Donate</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--INPUT MASK-->
+
+
+    {% endblock %}

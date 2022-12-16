@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description"
+		content="The city of Cox’s Bazar is a coastal town. The district is extremely poverty and disaster prone">
+	<!-- title -->
+
+	{% load static %}
+	<!-- favicon -->
+	<link rel="stylesheet" href="{%static 'view/assets/img/favicon.png'%}">
+	<!-- google font -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
+	<!-- fontawesome -->
+	<link rel="stylesheet" href="{%static 'view/assets/css/all.min.css'%}">
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="{%static 'view/assets/bootstrap/css/bootstrap.min.css'%}">
+	<!-- owl carousel -->
+	<link rel="stylesheet" href="{%static 'view/assets/css/owl.carousel.css'%}">
+	<!-- magnific popup -->
+	<link rel="stylesheet" href="{%static 'view/assets/css/magnific-popup.css'%}">
+	<!-- animate css -->
+	<link rel="stylesheet" href="{%static 'view/assets/css/animate.css'%}">
+	<!-- mean menu css -->
+	<link rel="stylesheet" href="{%static 'view/assets/css/meanmenu.min.css'%}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{%static 'view/assets/css/slick.css'%}">
+	<!-- main style -->
+	<link rel="stylesheet" href="{%static 'view/assets/css/main.css'%}">
+	<!-- responsive -->
+	<link rel="stylesheet" href="{%static 'view/assets/css/responsive.css'%}">
+
+</head>
+
+<body>
+	{% load hometag %}
+	{% personal_info as personal %}
+	{% social_media as media %}
+	<!--PreLoader-->
+	<!--<div class="loader">-->
+	<!--	<div class="loader-inner">-->
+	<!--		<div class="circle"></div>-->
+	<!--	</div>-->
+	<!--</div>-->
+	<!--PreLoader Ends-->
+
+	<!-- header -->
+	<div class="top-header-area" id="sticker">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 col-sm-12 text-center">
+					<div class="main-menu-wrap">
+						<!-- logo -->
+						<div class="site-logo">
+							<a href="{% url 'font_index' %}">
+
+								<img style="width:100px; height:40px;"
+									src="{%static 'view/assets/img/company-logos/mbss_logo15.jpg'%}" alt="img">
+							</a>
+						</div>
+						<!-- logo -->
+
+						<!-- menu start -->
+						<nav class="main-menu">
+							<ul>
+								<li class="current-list-item"><a href="/">Home</a>
+								</li>
+								<li><a href="{% url 'about' %}">About</a></li>
+								<li><a href="{% url 'picture' %}">Gallery</a>
+									<ul class="sub-menu">
+										<li><a href="{% url 'picture' %}">Picture</a></li>
+										<li><a href="{% url 'documentation' %}">Documentation</a></li>
+									</ul>
+								</li>
+								<li><a href="{% url 'news' %}">News</a>
+									<ul class="sub-menu">
+										<li><a href="{% url 'news' %}">News</a></li>
+
+									</ul>
+								</li>
+								<li><a href="{% url 'documents' %}">Documents</a></li>
+								<li><a href="{% url 'donate_Us' %}">Donate US</a></li>
+								<li><a href="{% url 'contact' %}">Contact</a></li>
+								<li>
+									<div class="header-icons">
+
+										<ul>
+											{% if media %}
+											{% for medias in media %}
+											{% if medias.facebook %}
+											<li><a href="{{medias.facebook}}" target="_blank"><i
+														class="fab fa-facebook-f"></i></a></li>
+											{% else %}
+											<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+											{% endif %}
+											{% if medias.twitter  %}
+											<li><a href="{{medias.twitter}}" target="_blank"><i
+														class="fab fa-twitter"></i></a></li>
+											{% else %}
+											<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+											{% endif %}
+											{% if medias.instagram  %}
+											<li><a href="{{medias.instagram}}" target="_blank"><i
+														class="fab fa-instagram"></i></a></li>
+											{% else %}
+											<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+											{% endif %}
+											{% if medias.linkedin  %}
+											<li><a href="{{medias.linkedin}}" target="_blank"><i
+														class="fab fa-linkedin"></i></a></li>
+											{% else %}
+											<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+											{% endif %}
+											{% if medias.dribbble  %}
+											<li><a href="{{medias.dribbble}}" target="_blank"><i
+														class="fab fa-dribbble"></i></a></li>
+											{% else %}
+											<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+											{% endif %}
+
+											{% endfor %}
+
+											{% else %}
+											<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+											<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+											{% endif %}
+										</ul>
+									</div>
+
+								</li>
+							</ul>
+						</nav>
+						<a class="mobile-show search-bar-icon" href="#"><i class="fas fa-search"></i></a>
+						<div class="mobile-menu"></div>
+						<!-- menu end -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end header -->

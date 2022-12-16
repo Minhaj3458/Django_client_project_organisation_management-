@@ -1,0 +1,198 @@
+<!-- footer -->
+{% load static %}
+{% load hometag %}
+{% personal_info as personal %}
+<div class="footer-area">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box about-widget">
+					<h2 class="widget-title">About us</h2>
+					<p>The city of Cox’s Bazar is a coastal town. The district is extremely poverty and disaster
+						prone. The people have to lead
+						their life by struggling against flood, cyclone, landslides, drought, cold spell, and
+						seasonal food crisis almost every
+						year.</p>
+				</div>
+			</div>
+
+			<div class="col-lg-3 col-md-6">
+				{% if personal %}
+				{% for personal in personal %}
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li style="word-wrap: break-word;">{{personal.address}}</li>
+
+
+
+						<li>{{personal.phone1}}</li>
+						<li>{{personal.phone2}}</li>
+						<li>{{personal.email}}</li>
+					</ul>
+				</div>
+				{% endfor %}
+
+				{% else %}
+				<div class="footer-box get-in-touch">
+					<h2 class="widget-title">Get in Touch</h2>
+					<ul>
+						<li>Kashem plaza,South Janar Ghona, Jhilanja,Cox'sbazar ,Banagladesh</li>
+						<li>ngombss.bd@gmail.com</li>
+						<li>+8801771368881</li>
+						<li>+8801731227739</li>
+					</ul>
+				</div>
+				{% endif %}
+
+			</div>
+
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box pages">
+					<h2 class="widget-title">Pages</h2>
+					<ul>
+						<li><a href="/">Home</a></li>
+						<li><a href="{% url 'about' %}">About</a></li>
+						<li><a href="{% url 'picture' %}">Gallery</a></li>
+						<li><a href="{% url 'news' %}">News</a></li>
+						<li><a href="{% url 'contact' %}">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-lg-3 col-md-6">
+				<div class="footer-box subscribe">
+					<h2 class="widget-title">FOLLOW US</h2>
+					<div class="social-icons">
+						<ul>
+							{% if media %}
+							{% for medias in media %}
+							{% if medias.facebook %}
+							<li><a href="{{medias.facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							{% else %}
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							{% endif %}
+							{% if medias.twitter  %}
+							<li><a href="{{medias.twitter}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							{% else %}
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							{% endif %}
+							{% if medias.instagram  %}
+							<li><a href="{{medias.instagram}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							{% else %}
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							{% endif %}
+							{% if medias.linkedin  %}
+							<li><a href="{{medias.linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							{% else %}
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							{% endif %}
+							{% if medias.dribbble  %}
+							<li><a href="{{medias.dribbble}}" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+							{% else %}
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+							{% endif %}
+
+							{% endfor %}
+
+							{% else %}
+							<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+							<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+							{% endif %}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end footer -->
+
+<!-- copyright -->
+<div class="copyright">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<p>Copyrights &copy; 2022 - <a href="https://www.facebook.com/mdminhaj.mdminhaj.9828"
+						target="_blank">MBSS </a><a href="https://www.facebook.com/mdminhaj.mdminhaj.9828"
+						target="_blank">| Developed by Md Minhajur Rahman</a></p>
+
+			</div>
+			<div class="col-lg-6 text-right col-md-12">
+				<div class="social-icons">
+					<ul>
+						{% if media %}
+						{% for medias in media %}
+						{% if medias.facebook %}
+						<li><a href="{{medias.facebook}}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						{% else %}
+						<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						{% endif %}
+						{% if medias.twitter  %}
+						<li><a href="{{medias.twitter}}" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						{% else %}
+						<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						{% endif %}
+						{% if medias.instagram  %}
+						<li><a href="{{medias.instagram}}" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						{% else %}
+						<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						{% endif %}
+						{% if medias.linkedin  %}
+						<li><a href="{{medias.linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+						{% else %}
+						<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+						{% endif %}
+						{% if medias.dribbble  %}
+						<li><a href="{{medias.dribbble}}" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						{% else %}
+						<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						{% endif %}
+
+						{% endfor %}
+
+						{% else %}
+						<li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+						<li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
+						<li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
+						<li><a href="#" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+						<li><a href="#" target="_blank"><i class="fab fa-dribbble"></i></a></li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end copyright -->
+
+
+
+<!-- jquery -->
+<script src="{%static 'view/assets/js/jquery-1.11.3.min.js'%}"></script>
+<!-- bootstrap -->
+<script src="{%static 'view/assets/bootstrap/js/bootstrap.min.js'%}"></script>
+<!-- count down -->
+<script src="{%static 'view/assets/js/jquery.countdown.js'%}"></script>
+<!-- isotope -->
+<script src="{%static 'view/assets/js/jquery.isotope-3.0.6.min.js'%}"></script>
+<!-- waypoints -->
+<script src="{%static 'view/assets/js/waypoints.js'%}"></script>
+<!-- owl carousel -->
+<script src="{%static 'view/assets/js/owl.carousel.min.js'%}"></script>
+<!-- magnific popup -->
+<script src="{%static 'view/assets/js/jquery.magnific-popup.min.js'%}"></script>
+<!-- mean menu -->
+<script src="{%static 'view/assets/js/jquery.meanmenu.min.js'%}"></script>
+<!-- sticker js -->
+<script src="{%static 'view/assets/js/sticker.js'%}"></script>
+<!-- sticker js -->
+<script src="{%static 'view/assets/js/slick.min.js'%}"></script>
+<!-- main js -->
+<script src="{%static 'view/assets/js/main.js'%}"></script>
+
+</body>
+
+</html>

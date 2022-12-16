@@ -1,0 +1,200 @@
+{%extends '../index.html'%}
+{% block title%}
+picture | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block slider%}
+
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p>Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)</p>
+					<h1>Gallery</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+
+{% endblock %}
+{% block contant%}
+
+<!-- gallery -->
+<div class="product-section mt-150 mb-150">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-12">
+				<div class="product-filters">
+					<ul>
+						<li class="active" data-filter="*">All</li>
+						<li data-filter=".Latest">Latest picture</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="row product-lists">
+			{% if picture %}
+			{% for picture in picture %}
+			{% if picture.image%}
+			<div class="col-lg-4 col-md-6 text-center  ">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{{picture.image.url}}" class=" image-popup-vertical-fit"><img
+								src="{{picture.image.url}}" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			{% else %}
+
+			<div class="col-lg-4 col-md-6 text-center Latest">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="assets/img/Gallery/picture/Food Distribution-01.jpg"
+							class=" image-popup-vertical-fit"><img
+								src="assets/img/Gallery/picture/Food Distribution-01.jpg" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+			{% endfor %}
+			{% else %}
+			<div class="col-lg-4 col-md-6 text-center Latest">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="assets/img/Gallery/picture/Food Distribution-01.jpg"
+							class=" image-popup-vertical-fit"><img
+								src="assets/img/Gallery/picture/Food Distribution-01.jpg" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center Latest">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="assets/img/Gallery/picture/Food Distribution-02 .jpg"
+							class=" image-popup-vertical-fit"><img
+								src="assets/img/Gallery/picture/Food Distribution-02 .jpg" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center Latest">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="assets/img/Gallery/picture/Group Meeting-01.jpg" class=" image-popup-vertical-fit"><img
+								src="assets/img/Gallery/picture/Group Meeting-01.jpg" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="assets/img/Gallery/picture/Group Meeting-02.jpg" class=" image-popup-vertical-fit"><img
+								src="assets/img/Gallery/picture/Group Meeting-02.jpg" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="assets/img/Gallery/picture/Health camp-02.jpeg" class=" image-popup-vertical-fit"><img
+								src="assets/img/Gallery/picture/Health camp-02.jpeg" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center Latest">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="assets/img/Gallery/picture/Health capm-01.jpg" class=" image-popup-vertical-fit"><img
+								src="assets/img/Gallery/picture/Health capm-01.jpg" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+
+				</div>
+			</div>
+			{% endif %}
+			{% if picture_lat %}
+			{% for picture in picture_lat %}
+			<div class="col-lg-4 col-md-6 text-center Latest">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{{picture.image.url}}" class=" image-popup-vertical-fit"><img
+								src="{{picture.image.url}}" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+
+
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<div class="pagination-wrap">
+
+					{% if picture.has_previous %}
+					<!--								<a href="?page=1">&laquo; first</a>-->
+					<a href="?page={{ picture.previous_page_number }}" class="btn btn-primary">Previous</a>
+					{% endif %}
+
+					<span class="current">
+						Page {{ picture.number }} of {{picture.paginator.num_pages }}.
+					</span>
+
+					{% if picture.has_next %}
+					<a href="?page={{picture.next_page_number }}" class="btn btn-success">Next</a>
+					<!--								<a href="?page={{picture.paginator.num_pages }}">last &raquo;</a>-->
+					{% endif %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end gallery -->
+
+
+{% endblock %}

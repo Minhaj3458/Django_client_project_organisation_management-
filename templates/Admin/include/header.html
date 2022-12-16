@@ -1,0 +1,174 @@
+{% if request.session.user_id %}
+<!doctype html>
+<html lang="en" class="fixed left-sidebar-top">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />-->
+
+    {% load static %}
+    <!-- favicon -->
+    <!--	<link  rel="apple-touch-icon" sizes="120x120"  href="{%static 'Admin/favicon/apple-icon-120x120.png'%}">-->
+    <!--    <link rel="icon" type="image/png" sizes="192x192" href="{%static 'Admin/favicon/android-icon-192x192.png'%}">-->
+
+    <!--    <link rel="icon" type="image/png" sizes="32x32"  href="{%static 'Admin/favicon/favicon-32x32.png'%}">-->
+
+    <!--    <link rel="icon" type="image/png" sizes="16x16"  href="{%static 'Admin/favicon/favicon-16x16.png'%}">-->
+
+    <!--load progress bar-->
+    <script rel="stylesheet" src="{%static 'Admin/vendor/pace/pace.min.js'%}"></script>
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/pace/pace-theme-minimal.css'%}">
+
+
+    <!--BASIC css-->
+    <!-- ========================================================= -->
+    <link rel="stylesheet" href="{%static 'Admin/vendor/bootstrap/css/bootstrap.css'%}">
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/font-awesome/css/font-awesome.css'%}">
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/animate.css/animate.css'%}">
+
+    <!--SECTION css-->
+    <!-- ========================================================= -->
+    <!--Notification msj-->
+    <!--<link rel="stylesheet" href="{%static 'Admin/vendor/toastr/toastr.min.css'%}">-->
+
+    <!--Magnific popup-->
+    <link rel="stylesheet" href="{%static 'Admin/vendor/magnific-popup/magnific-popup.css'%}">
+    <!--SECTION css-->
+    <!-- ========================================================= -->
+    <!--Select with searching & tagging-->
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/select2/css/select2.min.css'%}">
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/select2/css/select2-bootstrap.min.css'%}">
+    <!--Date picker-->
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/bootstrap_date-picker/css/bootstrap-datepicker3.min.css'%}">
+    <!--Time picker-->
+    <link rel="stylesheet" href="{%static 'Admin/vendor/bootstrap_time-picker/css/timepicker.css'%}">
+    <!--Color picker-->
+    <link rel="stylesheet" href="{%static 'Admin/vendor/bootstrap_color-picker/css/bootstrap-colorpicker.min.css'%}">
+    <!--SECTION css-->
+    <!-- ========================================================= -->
+    <!--dataTable-->
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/data-table/media/css/dataTables.bootstrap.min.css'%}">>
+    <!-- dataTable Columns hiding responsive-->
+
+    <link rel="stylesheet"
+        href="{%static 'Admin/vendor/data-table/extensions/Responsive/css/responsive.bootstrap.min.css'%}">
+
+
+    <!--TEMPLATE css-->
+    <!-- ========================================================= -->
+    <link rel="stylesheet" href="{%static 'Admin/stylesheets/css/style.css'%}">
+
+
+
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- page HEADER -->
+        <!-- ========================================================= -->
+        <div class="page-header">
+            <!-- LEFTSIDE header -->
+            <div class="leftside-header">
+                <div class="logo">
+                    <a href="{% url 'font_index' %}" class="on-click">
+                        <img alt="logo" style="width:150px; height:50px;"
+                            src="{%static 'view/assets/img/company-logos/Screenshot_9.png'%}" alt="img" />
+                    </a>
+                </div>
+                <div id="menu-toggle" class="visible-xs toggle-left-sidebar" data-toggle-class="left-sidebar-open"
+                    data-target="html">
+                    <i class="fa fa-bars" aria-label="Toggle sidebar"></i>
+                </div>
+            </div>
+            <!-- RIGHTSIDE header -->
+            <div class="rightside-header">
+                <div class="header-middle"></div>
+                <!--SEARCH HEADERBOX-->
+                <div class="header-section" id="search-headerbox">
+                    <input type="text" name="search" id="search" placeholder="Search...">
+                    <i class="fa fa-search search" id="search-icon" aria-hidden="true"></i>
+                    <div class="header-separator"></div>
+                </div>
+                <!--NOCITE HEADERBOX-->
+                <div class="header-section hidden-xs" id="notice-headerbox">
+                    <!--check list-->
+                    <div class="notice" id="checklist-notice">
+                        <i class="fa fa-check-square-o" aria-hidden="true"></i>
+                        <div class="dropdown-box basic">
+                            <div class="drop-header">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--messages-->
+                    <div class="notice" id="messages-notice">
+                        <i class="fa fa-comments-o" aria-hidden="true"><span
+                                class="badge badge-xs badge-top-right x-danger"><i class="fa fa-exclamation"></i></span>
+                        </i>
+                        <div class="dropdown-box basic">
+                            <div class="drop-header ">
+                                <h3><i class="fa fa-comments" aria-hidden="true"></i></h3>
+                                <span class="badge x-danger b-rounded"></span>
+                            </div>
+                            <div class="drop-content">
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--alerts notices-->
+                    <div class="notice" id="alerts-notice">
+                        <i class="fa fa-bell-o" aria-hidden="true"><span
+                                class="badge badge-xs badge-top-right x-danger"></span></i>
+
+                        <div class="dropdown-box basic">
+                            <div class="drop-header">
+                                <h3><i class="fa fa-bell-o" aria-hidden="true"></i> </h3>
+                                <span class="badge x-danger b-rounded"></span>
+
+                            </div>
+                            <div class="drop-content">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="header-separator"></div>
+                </div>
+                <!--USER HEADERBOX -->
+                <div class="header-section" id="user-headerbox">
+                    <div class="user-header-wrap">
+                        <div class="user-photo">
+                          
+
+                            <img alt="profile photo" src="" />
+                          
+                        </div>
+                        <div class="user-info">
+                            {% if request.session.username %}
+                            <span class="user-name">{{request.session.username}}</span>
+                            {% endif %}
+                            <span class="user-profile">Admin</span>
+                        </div>
+                        <i class="fa fa-plus icon-open" aria-hidden="true"></i>
+                        <i class="fa fa-minus icon-close" aria-hidden="true"></i>
+                    </div>
+
+                </div>
+                <div class="header-separator"></div>
+                <!--Log out -->
+                <div class="header-section">
+                    <a href="{% url 'logout' %}" data-toggle="tooltip" data-placement="left" title="Logout"><i
+                            class="fa fa-sign-out log-out" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}

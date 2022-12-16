@@ -1,0 +1,173 @@
+{%extends '../index.html'%}
+{% block title%}
+donate_us | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block slider%}
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)</p>
+                    <h1>Donate us</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+
+{% endblock %}
+{% block contant%}
+
+
+<!-- contact form -->
+<div class="contact-from-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mb-5 mb-lg-0">
+                {% if payment %}
+                {% for payment in payment  %}
+                <div class="form-title">
+                    <h2 class="m-0 p-0">Bank account</h2>
+                    <p class="m-0 p-0">Bank Name : {{payment.bankName}}</p>
+                    <p class="m-0 p-0">A/C. No : {{payment.ac_no}}</p>
+                    <p class="m-0 p-0" style="word-wrap: break-word;">Branch: {{payment.branch}}</p>
+                </div>
+                <div class="form-title">
+                    <h2 class="m-0 p-0">Bkash account</h2>
+                    <p class="m-0 p-0">Account Name : {{payment.bkash_acc_name }}</p>
+                    <p class="m-0 p-0">Account Number : {{payment.bkash_acc_number}}</p>
+                    <p class="m-0 p-0" style="word-wrap: break-word;">Address:{{payment.bkash_acc_address}}</p>
+                </div>
+                <div class="form-title">
+                    <h2 class="m-0 p-0">Nagad account</h2>
+                    <p class="m-0 p-0">Account Name :{{payment.nagad_acc_name}}</p>
+                    <p class="m-0 p-0">Account Number:{{payment.nagad_acc_number}}</p>
+                    <p class="m-0 p-0" style="word-wrap: break-word;">Address:{{payment.nagad_acc_address}}</p>
+                </div>
+
+                {% endfor %}
+                {% else %}
+
+                <div class="form-title">
+                    <h2 class="m-0 p-0">Bank account</h2>
+                    <p class="m-0 p-0">Bank Name : Union Bank</p>
+                    <p class="m-0 p-0">A/C. No : 0841210000096</p>
+                    <p class="m-0 p-0">Branch : Link Road,Arif Al Hoque Shopping Complex
+                        1st floor) Jhilanja, Cox'sbazar, Bangladesh</p>
+                </div>
+                <div class="form-title">
+                    <h2 class="m-0 p-0">Bkash account</h2>
+                    <p class="m-0 p-0">Account Name : Union Bank</p>
+                    <p class="m-0 p-0">Account Number : 018******</p>
+                    <p class="m-0 p-0">Address :Cox'sbazar, Bangladesh</p>
+                </div>
+                <div class="form-title">
+                    <h2 class="m-0 p-0">Nagad account</h2>
+                    <p class="m-0 p-0">Account Name : Union Bank</p>
+                    <p class="m-0 p-0">Account Number: 018******</p>
+                    <p class="m-0 p-0">Address :Cox'sbazar, Bangladesh</p>
+                </div>
+                {% endif %}
+
+                {% if messages %}
+
+                {% for message in messages %}
+                <div class="alert {{message.tags}} alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong> {{message}}</strong>
+                </div>
+                {% endfor %}
+
+                {% endif %}
+
+
+                <div id="form_status"></div>
+                <div class="contact-form">
+                    <h5>Please send your information</h5>
+                    <form type="POST" action="" method="post" id="fruitkha-contact"
+                        onSubmit="return valid_datas( this );">
+                        {% csrf_token %}
+                        <p>
+                            <input type="text" placeholder="Full Name" name="full_name" id="name">
+                            <input type="email" placeholder="Email" name="email" id="email">
+                        </p>
+                        <p>
+                            <input type="tel" placeholder="Phone" name="number" id="phone">
+                            <input type="text" placeholder="Bank slip no / Transaction id" name="bank_sl_tran"
+                                id="subject">
+                        </p>
+                        <p><textarea name="message" id="message" cols="30" rows="10" placeholder="Message"
+                                maxlength="100"></textarea></p>
+                        <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set to <span
+                                id="characterCount">0</span> /<span class="code">100</span></span>
+                        <p><input type="submit" value="Send"></p>
+                    </form>
+                </div>
+            </div>
+            {% if personal %}
+            {% for personal in personal %}
+            <div class="col-lg-4 mt-5">
+                <div class="contact-form-wrap">
+                    <div class="contact-form-box pt-4">
+                        <h4><i class="fas fa-map"></i> Our Address</h4>
+                        <p style="word-wrap: break-word;">
+                            {{personal.address}}
+                        </p>
+                    </div>
+
+                    <div class="contact-form-box">
+                        <h4><i class="fas fa-address-book"></i> Contact</h4>
+                        <p>Phone1: {{personal.phone1}}<br>Phone2: {{personal.phone2}}
+                            <br> Email: {{personal.email}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+            {% else %}
+            <div class="col-lg-4 mt-5">
+                <div class="contact-form-wrap">
+                    <div class="contact-form-box pt-4">
+                        <h4><i class="fas fa-map"></i> Our Address</h4>
+                        <p>
+                            Kashem plaza,South Janar Ghona, Jhilanja,Cox'sbazar ,Banagladesh
+                        </p>
+                    </div>
+
+                    <div class="contact-form-box">
+                        <h4><i class="fas fa-address-book"></i> Contact</h4>
+                        <p>Phone1: +8801771368881<br>Phone2: +8801731227739
+                            <br> Email: ngombss.bd@gmail.com
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+            {% endif %}
+
+
+        </div>
+    </div>
+</div>
+<!-- end contact form -->
+<script>
+
+    var inputs = document.querySelectorAll('textarea')[0],
+        characterCount = document.querySelector('#characterCount');
+
+    inputs.addEventListener('keyup', function () {
+
+
+        console.clear();
+
+        characterCount.innerHTML = inputs.value.length;
+
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,107 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Add Users | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-columns" aria-hidden="true"></i><a href="{% url 'add_user' %}">Add Users</a></li>
+                <li><a href="{% url 'manage_user' %}">Manage Users</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <div class="row animated fadeInUp">
+        <!--MAX LENGTH-->
+        <div class="col-md-2"></div>
+        <div class="col-sm-6 col-md-7 ">
+            <h4 class="section-subtitle"><b>Add Users</b></h4>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert {{message.tags}} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> {{message}}</strong>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="" method="post" action="" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="form-group mt-md">
+                                    <span class="input-with-icon">
+                                        <input type="text" class="form-control" name="name" id="name" placeholder="Name"
+                                            required>
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </div>
+                                <div class="form-group mt-md">
+                                    <span class="input-with-icon">
+                                        <input type="text" class="form-control" name="username" id="username"
+                                            placeholder="User Name" required>
+                                        <i class="fa fa-user"></i>
+                                    </span>
+                                </div>
+                                <div class="form-group mt-md">
+                                    <span class="input-with-icon">
+                                        <input type="email" class="form-control" name="email" id="email"
+                                            placeholder="Email" required>
+                                        <i class="fa fa-envelope"></i>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input-with-icon">
+                                        <input type="password" class="form-control" name="password" id="password"
+                                            placeholder="Password" required>
+                                        <i class="fa fa-key"></i>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <span class="input-with-icon">
+                                        <input type="password" class="form-control" name="confirm-password"
+                                            id="confirm-password" placeholder="Confirm Password">
+                                        <i class="fa fa-key"></i>
+                                    </span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="checkbox-custom checkbox-primary">
+                                        <input type="checkbox" id="terms" value="option1">
+                                        <label class="check" for="terms">I agree </label> to the <a href="#">Terms and
+                                            Conditions</a>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="submit" class="btn btn-primary btn-block" value="Add Users">
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--INPUT MASK-->
+
+
+
+    {% endblock %}

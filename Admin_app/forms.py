@@ -1,0 +1,49 @@
+from django import forms
+from Contact_app.models import Contact
+from .import models
+
+class Personal_Info_form(forms.ModelForm):
+    class Meta:
+        model = models.Personal_Info
+        fields = "__all__"
+
+
+class social_media_form(forms.ModelForm):
+    class Meta:
+        model = models.Social_Media
+        fields = "__all__"
+
+class picture_form(forms.ModelForm):
+    class Meta:
+        model = models.Picture
+        fields = "__all__"
+
+class documentation_form(forms.ModelForm):
+    class Meta:
+        model = models.Documentation
+        fields = "__all__"
+
+
+class news_form(forms.ModelForm):
+    class Meta:
+        model = models.News
+        fields = "__all__"
+
+class documents_form(forms.ModelForm):
+    class Meta:
+        model = models.Documents
+        fields = "__all__"
+
+
+class payment_form(forms.ModelForm):
+    class Meta:
+        model = models.Payment_system
+        fields = "__all__"
+
+
+class contact_form(forms.ModelForm):
+    class Meta:
+        model = Contact
+        fields = "__all__"
+
+

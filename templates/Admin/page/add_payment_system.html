@@ -1,0 +1,162 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Add Payment System | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-columns" aria-hidden="true"></i><a href="{% url 'add_payment_system' %}">Add Payment
+                        System</a></li>
+                <li><a href="{% url 'manage_payment' %}">Manage Payment System</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <div class="row animated fadeInUp">
+        <!--MAX LENGTH-->
+        <div class="col-md-2"></div>
+        <div class="col-sm-6 col-md-7 ">
+            <h4 class="section-subtitle"><b>Add Payment System</b></h4>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert {{message.tags}} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> {{message}}</strong>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="" method="post" action="" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="btn btn-success btn-block"> Bank account </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Bank Name </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="bankName"
+                                        placeholder="Bank Name " maxlength="60" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">60</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> A/C. No </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="ac_no"
+                                        placeholder="A/C. No" maxlength="25" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">25</span></span>
+                                </div>
+                                <!--TEXTAREA max length-->
+                                <div class="form-group">
+                                    <label for="textareaMaxLength" class="control-label">Branch </label>
+                                    <textarea class="form-control" rows="3" id="textareaMaxLength" name="branch"
+                                        placeholder="Branch " maxlength="100" required></textarea>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span id="characterCount">0</span> /<span class="code">100</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="btn btn-success btn-block"> Bkash account</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Account Name </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="bkash_acc_name"
+                                        placeholder="Account Name" maxlength="60" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">60</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Account Number </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="bkash_acc_number"
+                                        placeholder="Account Number " maxlength="25" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">25</span></span>
+                                </div>
+                                <!--TEXTAREA max length-->
+                                <div class="form-group">
+                                    <label for="textareaMaxLength" class="control-label">Address</label>
+                                    <textarea class="form-control" rows="3" id="textareaMaxLength"
+                                        name="bkash_acc_address" placeholder="Address" maxlength="100"
+                                        required></textarea>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span id="characterCount">0</span> /<span class="code">100</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class=" control-label btn btn-success btn-block"> Nagad
+                                        account</label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Account Name </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="nagad_acc_name"
+                                        placeholder="Account Name" maxlength="60" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">60</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Account Number </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name=" nagad_acc_number"
+                                        placeholder="Account Number " maxlength="25" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">25</span></span>
+                                </div>
+                                <!--TEXTAREA max length-->
+                                <div class="form-group">
+                                    <label for="textareaMaxLength" class="control-label">Address</label>
+                                    <textarea class="form-control" rows="3" id="textareaMaxLength"
+                                        name="nagad_acc_address" placeholder="Address" maxlength="100"
+                                        required></textarea>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span id="characterCount">0</span> /<span class="code">100</span></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Add Payment System</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--INPUT MASK-->
+
+    <script>
+
+        var inputs = document.querySelectorAll('textarea')[0],
+            characterCount = document.querySelector('#characterCount');
+
+        inputs.addEventListener('keyup', function () {
+
+
+            console.clear();
+
+            characterCount.innerHTML = inputs.value.length;
+
+        });
+    </script>
+
+    {% endblock %}

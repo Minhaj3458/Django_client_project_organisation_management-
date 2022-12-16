@@ -1,0 +1,114 @@
+{%extends '../index.html'%}
+{% block title%}
+documents | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block slider%}
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="breadcrumb-text">
+					<p>Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)</p>
+					<h1>Documents</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end breadcrumb section -->
+{% endblock %}
+{% block contant%}
+<!-- check out section -->
+<div class="checkout-section mt-150 mb-150">
+	<div class="container">
+		<div class="row  justify-content-center">
+			{% if docum %}
+			{% for docum in docum %}
+			<div class="col-lg-10 mt-3">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="checkout-accordion-wrap">
+							<div class="accordion" id="accordionExample">
+								<div class="card single-accordion">
+									<div class="card-header" id="headingOne">
+										<h5 class="mb-0">
+											<button class="btn btn-link" type="button">
+												{{docum.doc_title}}
+											</button>
+										</h5>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-2 mt-2">
+						<a href="{{docum.doc_pdf.url}}" target="_blank" class="boxed-btn" download>Download</a>
+
+					</div>
+				</div>
+			</div>
+			{% endfor%}
+			{% else %}
+
+			<div class="col-lg-10">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="checkout-accordion-wrap">
+							<div class="accordion" id="accordionExample">
+								<div class="card single-accordion">
+									<div class="card-header" id="headingOne">
+										<h5 class="mb-0">
+											<button class="btn btn-link" type="button">
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus!
+											</button>
+										</h5>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-2 mt-2">
+						<a href="" class="boxed-btn">Download</a>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-10 mt-3">
+				<div class="row">
+					<div class="col-lg-8">
+						<div class="checkout-accordion-wrap">
+							<div class="accordion" id="accordionExample">
+								<div class="card single-accordion">
+									<div class="card-header" id="headingOne">
+										<h5 class="mb-0">
+											<button class="btn btn-link" type="button">
+												Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus!
+											</button>
+										</h5>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="col-lg-2 mt-2">
+						<a href="#" class="boxed-btn">Download</a>
+					</div>
+				</div>
+			</div>
+			{% endif %}
+
+		</div>
+	</div>
+</div>
+<!-- end check out section -->
+
+
+{% endblock %}

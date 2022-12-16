@@ -1,0 +1,95 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Manage Documentation | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-table" aria-hidden="true"></i><a href="{% url 'manage_documentation' %}">Manage
+                        Documentation</a></li>
+                <li><a href="{% url 'add_documentation' %}">Add Documentation</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--COLUMNS HIDDEN RESPONSIVE-->
+    <div class="col-sm-12">
+        <h4 class="section-subtitle">Manage Picture</h4>
+        {% if messages %}
+
+        {% for message in messages %}
+        <div class="alert {{message.tags}} alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong> {{message}}</strong>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+        <div class="panel">
+            <div class="panel-content table-responsive text-nowrap">
+                <table id="responsive-table"
+                    class="data-table table table-striped table-hover responsive nowrap table-bordered " cellspacing="0"
+                    width="100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Image1 Name</th>
+                            <th>Image1</th>
+                            <th>Image2 Name</th>
+                            <th>Image2</th>
+                            <th>Image3 Name</th>
+                            <th>Image3</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if documentation %}
+                        {% for documentation in documentation %}
+                        <tr>
+                            <td>{{documentation.id}}</td>
+                            <td>{{documentation.image1}}</td>
+                            <td><img width="80px" height="70px" src="{{documentation.image1.url}}" alt="img"></td>
+                            <td>{{documentation.image2}}</td>
+                            <td><img width="80px" height="70px" src="{{documentation.image2.url}}" alt="img"></td>
+                            <td>{{documentation.image3}}</td>
+                            <td><img width="80px" height="70px" src="{{documentation.image3.url}}" alt="img"></td>
+                            <td>
+                                <a href="{% url 'documentation_edit' Id=documentation.id %}"
+                                    class="text-info mr-xs mr-md h3 btn-loading">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="{% url 'documentation_delete' Id=documentation.id %}" class="text-danger h3">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+</div>
+
+<!-- Tabs Content -->
+
+
+
+{% endblock %}

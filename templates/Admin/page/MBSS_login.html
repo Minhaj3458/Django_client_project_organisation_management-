@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en" class="fixed accounts sign-in">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Login | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)</title>
+    {% load static %}
+
+    <!-- favicon -->
+    <!--	<link  rel="apple-touch-icon" sizes="120x120"  href="{%static 'Admin/favicon/apple-icon-120x120.png'%}">-->
+    <!--    <link rel="icon" type="image/png" sizes="192x192" href="{%static 'Admin/favicon/android-icon-192x192.png'%}">-->
+
+    <!--    <link rel="icon" type="image/png" sizes="32x32"  href="{%static 'Admin/favicon/favicon-32x32.png'%}">-->
+
+    <!--    <link rel="icon" type="image/png" sizes="16x16"  href="{%static 'Admin/favicon/favicon-16x16.png'%}">-->
+
+
+    <!--BASIC css-->
+    <!-- ========================================================= -->
+    <link rel="stylesheet" href="{%static 'Admin/vendor/bootstrap/css/bootstrap.css'%}">
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/font-awesome/css/font-awesome.css'%}">
+
+    <link rel="stylesheet" href="{%static 'Admin/vendor/animate.css/animate.css'%}">
+
+    <!--SECTION css-->
+    <!-- ========================================================= -->
+    <!--TEMPLATE css-->
+    <!-- ========================================================= -->
+    <!--TEMPLATE css-->
+    <!-- ========================================================= -->
+    <link rel="stylesheet" href="{%static 'Admin/stylesheets/css/style.css'%}">
+
+</head>
+
+<body style="background:black !important;">
+    <div class="wrap">
+        <!-- page BODY -->
+        <!-- ========================================================= -->
+        <div class="page-body animated slideInDown">
+            <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+            <!--LOGO-->
+            <div class="logo">
+                <img alt="logo" style="width:150px; height:80px;"
+                    src="{%static 'view/assets/img/company-logos/Screenshot_9.png'%}" alt="img" />
+            </div>
+            <div class="box">
+                <!--SIGN IN FORM-->
+                <div class="panel mb-none">
+                    <div class="panel-content bg-scale-0">
+                        {% if messages %}
+
+                        {% for message in messages %}
+                        <div class="alert {{message.tags}} alert-dismissible">
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                            <strong> {{message}}</strong>
+                        </div>
+                        {% endfor %}
+
+                        {% endif %}
+                        <form action="" method="post">
+                            {% csrf_token %}
+                            <div class="form-group mt-md">
+                                <span class="input-with-icon">
+                                    <input type="text" class="form-control" name="username" id="email"
+                                        placeholder="UserName" required>
+                                    <i class="fa fa-user"></i>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <span class="input-with-icon">
+                                    <input type="password" class="form-control" name="password" id="password"
+                                        placeholder="password" required>
+                                    <i class="fa fa-key"></i>
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <div class="checkbox-custom checkbox-primary">
+                                    <input type="checkbox" id="remember-me" value="option1" checked>
+                                    <label class="check" for="remember-me">Remember me</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                            </div>
+                            <div class="form-group text-center">
+                                <a href="{% url 'forgot_password' %}">Forgot password?</a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+        </div>
+    </div>
+
+    <!--BASIC scripts-->
+    <!-- ========================================================= -->
+    <script src="{%static 'Admin/vendor/jquery/jquery-1.12.3.min.js'%}"></script>
+    <script src="{%static 'Admin/vendor/bootstrap/js/bootstrap.min.js'%}"></script>
+    <script src="{%static 'Admin/vendor/nano-scroller/nano-scroller.js'%}"></script>
+
+    <!--TEMPLATE scripts-->
+    <!-- ========================================================= -->
+    <script src="{%static 'Admin/javascripts/template-script.min.js'%}"></script>
+    <script src="{%static 'Admin/javascripts/template-init.min.js'%}"></script>
+
+    <!-- SECTION script and examples-->
+    <!-- ========================================================= -->
+</body>
+
+
+</html>

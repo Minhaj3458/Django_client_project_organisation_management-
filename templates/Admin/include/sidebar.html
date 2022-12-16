@@ -1,0 +1,128 @@
+<!-- page BODY -->
+<!-- ========================================================= -->
+<div class="page-body">
+    <!-- LEFT SIDEBAR -->
+    <!-- ========================================================= -->
+    <div class="left-sidebar">
+        <!-- left sidebar HEADER -->
+        <div class="left-sidebar-header">
+            <div class="left-sidebar-title" style="font-size:35px;">MBSS </div>
+            <div class="left-sidebar-toggle c-hamburger c-hamburger--htla hidden-xs"
+                data-toggle-class="left-sidebar-collapsed" data-target="html">
+                <span></span>
+            </div>
+        </div>
+        <!-- NAVIGATION -->
+        <!-- ========================================================= -->
+        <div id="left-nav" class="nano">
+            <div class="nano-content">
+                <nav>
+                    <ul class="nav nav-left-lines" id="main-nav">
+                        <li class="active-item"><a href="{% url 'manage_user' %}"><i class="fa fa-user"
+                                    aria-hidden="true"></i><span>Users</span></a></li>
+                        <!--MENU LEVELS-->
+                        <li class=" has-child-item close-item">
+                            <a>
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span>Home</span>
+                            </a>
+                            <ul class="nav child-nav level-1">
+                                <li class="has-child-item close-item">
+                                    <a>Organisation Infomation</a>
+                                    <ul class="nav child-nav level-2 ">
+                                        <li><a href="{% url 'add_info' %}">Add Organisation Information</a></li>
+                                        <li><a href="{% url 'manage_info' %}">Manage Information</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="has-child-item close-item">
+                                    <a>Social Media</a>
+                                    <ul class="nav child-nav level-2 ">
+                                        <li><a href="{% url 'add_media' %}">Add Social Media</a></li>
+                                        <li><a href="{% url 'manage_media' %}">Manage Social Media</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <!--MENU LEVELS-->
+                        <li class=" has-child-item close-item">
+                            <a>
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span>Gallery</span>
+                            </a>
+                            <ul class="nav child-nav level-1">
+                                <li class="has-child-item close-item">
+                                    <a>Picture</a>
+                                    <ul class="nav child-nav level-2 ">
+                                        <li><a href="{% url 'add_picture' %}">Add Picture</a></li>
+                                        <li><a href="{% url 'manage_picture' %}">Manage Picture</a></li>
+
+                                    </ul>
+                                </li>
+
+                                <li class="has-child-item close-item">
+                                    <a>Documentation</a>
+                                    <ul class="nav child-nav level-2 ">
+                                        <li><a href="{% url 'add_documentation' %}">Add Documentation</a></li>
+                                        <li><a href="{% url 'manage_documentation' %}">Manage Documentation</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--CHARTS-->
+                        <li class="has-child-item close-item">
+                            <a><i class="fa fa-book" aria-hidden="true"></i><span>News</span> </a>
+                            <ul class="nav child-nav level-1">
+                                <li><a href="{% url 'add_news' %}">Add News</a></li>
+                                <li><a href="{% url 'manage_news' %}">Manage News</a></li>
+                            </ul>
+                        </li>
+                        <!--FORMS-->
+                        <li class="has-child-item close-item">
+                            <a><i class="fa fa-user" aria-hidden="true"></i><span>Documents </span></a>
+                            <ul class="nav child-nav level-1">
+                                <li><a href="{% url 'add_documents' %} ">Add Documents</a></li>
+                                <li><a href="{% url 'manage_documents' %}">Manage Documents</a></li>
+                            </ul>
+                        </li>
+                        <!--MENU LEVELS-->
+                        <li class=" has-child-item close-item">
+                            <a>
+                                <i class="fa fa-users" aria-hidden="true"></i>
+                                <span>Donate Us</span>
+                            </a>
+                            <ul class="nav child-nav level-1">
+                                <li class="has-child-item close-item">
+                                    <a>Donate Messages</a>
+                                    <ul class="nav child-nav level-2">
+                                        <li><a href="{% url 'manage_donate_us' %}">Manage Donate Messages </a></li>
+                                    </ul>
+                                </li>
+                                <li class="has-child-item close-item">
+                                    <a>Donate payment system</a>
+                                    <ul class="nav child-nav level-2 ">
+                                        <li><a href="{% url 'add_payment_system' %}">Add Payment System</a></li>
+                                        <li><a href="{% url 'manage_payment' %}">Manage Payment System</a></li>
+
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!--TABLES-->
+                        <li class="has-child-item close-item">
+                            <a><i class="fa fa-table" aria-hidden="true"></i><span>Contact</span></a>
+                            <ul class="nav child-nav level-1">
+                                <li><a href="{% url 'manage_contact' %}">Manage Contact</a></li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>

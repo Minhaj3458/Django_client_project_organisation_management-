@@ -1,0 +1,234 @@
+{%extends '../index.html'%}
+{% block title%}
+documentation | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block slider%}
+<!-- breadcrumb-section -->
+<div class="breadcrumb-section breadcrumb-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 offset-lg-2 text-center">
+                <div class="breadcrumb-text">
+                    <p>Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)</p>
+                    <h1>Documentation</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end breadcrumb section -->
+{% endblock %}
+
+{% block contant%}
+
+<!-- gallery -->
+<div class="product-section mt-150 mb-150">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="product-filters">
+                    <ul>
+                        <li class="active" data-filter=".All">All</li>
+                        <li data-filter=".Latest">Latest document</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="row product-lists">
+            {% if  documentation1 %}
+            {% for  documentation1 in  documentation1 %}
+            <div class="col-lg-4 col-md-6 text-center All">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="{{documentation1.image1.url}}" class=" image-popup-vertical-fit"><img
+                                src="{{documentation1.image1.url}}" alt="">
+                            <div class="gallary_overly">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center All">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="{{documentation1.image2.url}}" class=" image-popup-vertical-fit"><img
+                                src="{{documentation1.image2.url}}" alt="">
+                            <div class="gallary_overly">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center All">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="{{documentation1.image3.url}}" class=" image-popup-vertical-fit"><img
+                                src="{{documentation1.image3.url}}" alt="">
+                            <div class="gallary_overly">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+
+<!--            <div class="col-lg-4 col-md-6 text-center Latest">-->
+<!--                <div class="single-product-item">-->
+<!--                    <div class="product-image">-->
+<!--                        <a href="assets/img/Gallery/document/Certificate-01.jpg" class=" image-popup-vertical-fit"><img-->
+<!--                                src="assets/img/Gallery/document/Certificate-02.jpg" alt="">-->
+<!--                            <div class="gallary_overly">-->
+<!--                                <i class="fas fa-search-plus"></i>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 text-center Latest">-->
+<!--                <div class="single-product-item">-->
+<!--                    <div class="product-image">-->
+<!--                        <a href="assets/img/Gallery/document/Certificate-02.jpg" class=" image-popup-vertical-fit"><img-->
+<!--                                src="assets/img/Gallery/document/Certificate-02.jpg" alt="">-->
+<!--                            <div class="gallary_overly">-->
+<!--                                <i class="fas fa-search-plus"></i>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 text-center Latest">-->
+<!--                <div class="single-product-item">-->
+<!--                    <div class="product-image">-->
+<!--                        <a href="assets/img/Gallery/document/Certificate-03.jpg" class=" image-popup-vertical-fit"><img-->
+<!--                                src="assets/img/Gallery/document/Certificate-03.jpg" alt="">-->
+<!--                            <div class="gallary_overly">-->
+<!--                                <i class="fas fa-search-plus"></i>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 text-center">-->
+<!--                <div class="single-product-item">-->
+<!--                    <div class="product-image">-->
+<!--                        <a href="assets/img/Gallery/document/Certificate-04.jpg" class=" image-popup-vertical-fit"><img-->
+<!--                                src="assets/img/Gallery/document/Certificate-04.jpg" alt="">-->
+<!--                            <div class="gallary_overly">-->
+<!--                                <i class="fas fa-search-plus"></i>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 text-center">-->
+<!--                <div class="single-product-item">-->
+<!--                    <div class="product-image">-->
+<!--                        <a href="assets/img/Gallery/document/Certificate-02.jpg" class=" image-popup-vertical-fit"><img-->
+<!--                                src="assets/img/Gallery/document/Certificate-02.jpg" alt="">-->
+<!--                            <div class="gallary_overly">-->
+<!--                                <i class="fas fa-search-plus"></i>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-4 col-md-6 text-center Latest">-->
+<!--                <div class="single-product-item">-->
+<!--                    <div class="product-image">-->
+<!--                        <a href="assets/img/Gallery/document/Certificate-03.jpg" class=" image-popup-vertical-fit"><img-->
+<!--                                src="assets/img/Gallery/document/Certificate-03.jpg" alt="">-->
+<!--                            <div class="gallary_overly">-->
+<!--                                <i class="fas fa-search-plus"></i>-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+<!--            </div>-->
+            {% endif %}
+
+
+            {% if documentation_lat  %}
+            {% for documentation_lat in documentation_lat %}
+            <div class="col-lg-4 col-md-6 text-center Latest">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="{{documentation_lat.image1.url}}" class=" image-popup-vertical-fit"><img
+                                src="{{documentation_lat.image1.url}}" alt="">
+                            <div class="gallary_overly">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center Latest">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="{{documentation_lat.image2.url}}" class=" image-popup-vertical-fit"><img
+                                src="{{documentation_lat.image2.url}}" alt="">
+                            <div class="gallary_overly">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 text-center Latest">
+                <div class="single-product-item">
+                    <div class="product-image">
+                        <a href="{{documentation_lat.image3.url}}" class=" image-popup-vertical-fit"><img
+                                src="{{documentation_lat.image3.url}}" alt="">
+                            <div class="gallary_overly">
+                                <i class="fas fa-search-plus"></i>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            {% endfor %}
+            {% endif %}
+
+
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="pagination-wrap">
+                    {% if documentation1.has_previous %}
+                    <!--								<a href="?page=1">&laquo; first</a>-->
+                    <a href="?page={{ documentation1.previous_page_number }}" class="btn btn-primary">Previous</a>
+                    {% endif %}
+
+                    <span class="current">
+                        Page {{ documentation1.number }} of {{documentation1.paginator.num_pages }}.
+                    </span>
+
+                    {% if documentation1.has_next %}
+                    <a href="?page={{documentation1.next_page_number }}" class="btn btn-success">Next</a>
+                    <!--								<a href="?page={{picture.paginator.num_pages }}">last &raquo;</a>-->
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end gallery -->
+
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Manage Documents | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-table" aria-hidden="true"></i><a href="{% url 'add_documents' %}">Add Documents</a>
+                </li>
+                <li><a href="{% url 'manage_documents' %}">Manage Documents</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--COLUMNS HIDDEN RESPONSIVE-->
+    <div class="col-sm-12">
+        <h4 class="section-subtitle">Manage Picture</h4>
+        {% if messages %}
+
+        {% for message in messages %}
+        <div class="alert {{message.tags}} alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong> {{message}}</strong>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+        <div class="panel">
+            <div class="panel-content table-responsive text-nowrap">
+                <table id="responsive-table"
+                    class="data-table table table-striped table-hover responsive nowrap table-bordered " cellspacing="0"
+                    width="100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Documents Title</th>
+                            <th>Documents PDF Name</th>
+                            <th>DateTime</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if documents %}
+                        {% for documents in documents %}
+                        <tr>
+                            <td>{{documents.id}}</td>
+                            <td>
+                                <p style="word-wrap:break-word;">{{documents.doc_title}}</p>
+                            </td>
+                            <td><a href="{{documents.doc_pdf.url}}" download>{{documents.doc_pdf}}</a></td>
+                            <td>{{documents.date_time}}</td>
+                            <td>
+                                <a href="{% url 'documents_edit' Id=documents.id %}"
+                                    class="text-info mr-xs mr-md h3 btn-loading">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="{% url 'documents_delete' Id=documents.id %}" class="text-danger h3">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+</div>
+
+<!-- Tabs Content -->
+
+
+
+{% endblock %}

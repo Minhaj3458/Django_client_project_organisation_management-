@@ -1,0 +1,19 @@
+{% if request.session.user_id %}
+
+
+{% include 'Admin/include/header.html'%}
+
+    <title>{% block title%}
+   Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}</title>
+
+    {% load static %}
+     {% include 'Admin/include/sidebar.html'%}
+
+{% block content%}
+
+ {% endblock %}
+{% include 'Admin/include/footer.html'%}
+
+
+{% endif %}

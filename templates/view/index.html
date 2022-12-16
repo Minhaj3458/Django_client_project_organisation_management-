@@ -1,0 +1,376 @@
+{% load hometag %}
+{% personal_info as personal %}
+{% social_media as media %}
+{% include 'view/include/header.html'%}
+{% load static %}
+
+<title>{% block title%} Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS) {% endblock %}</title>
+{% block slider%}
+
+<!-- home page slider -->
+<div class="homepage-slider">
+	<!-- single home slider -->
+	<div class="single-homepage-slider homepage-bg-1"
+		style="background: url({%static 'view/assets/img/silder/silde_1.jpg'%})">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-lg-12 offset-lg-1 offset-xl-0">
+					<div class="hero-text">
+						<div class="hero-text-tablecell">
+							<p class="subtitle">MBSS
+							</p>
+							<h1>Mather Bari Bohumukhi Sommaj kallan Sanstha</h1>
+							<div class="hero-btns">
+								<a href="{% url 'picture' %}" class="boxed-btn">Gallery</a>
+								<a href="{% url 'contact' %}" class="bordered-btn">Contact Us</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- single home slider -->
+	<div class="single-homepage-slider homepage-bg-2"
+		style="background:url({%static 'view/assets/img/silder/slider_2.jpg'%})">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1 text-center">
+					<div class="hero-text">
+						<div class="hero-text-tablecell">
+							<p class="subtitle">MBSS</p>
+							<h1>NGO Affairs Bureau RegistrationNo:3186</h1>
+							<div class="hero-btns">
+								<a href="{% url 'news' %}" class="boxed-btn">News</a>
+								<a href="{% url 'contact' %}" class="bordered-btn">Contact Us</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- single home slider -->
+	<div class="single-homepage-slider homepage-bg-3"
+		style="background:url({%static 'view/assets/img/silder/mbss_cover4.jpg'%})">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1 text-right">
+					<div class="hero-text">
+						<div class="hero-text-tablecell">
+							<p class="subtitle">MBSS
+							</p>
+							<h1>Mather Bari Bohumukhi Sommaj kallan Sanstha</h1>
+							<div class="hero-btns">
+								<a href="{% url 'about' %}" class="boxed-btn">About</a>
+								<a href="{% url 'contact' %}" class="bordered-btn">Contact Us</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end home page slider -->
+
+{% endblock %}
+{% block slider2%}
+
+{% endblock %}
+
+{% block contant%}
+<!-- about section -->
+<div class="abt-section mt-150">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-md-12">
+				<div class="abt-bg">
+
+					<img style="width:540px; height:500px;"
+						src="{%static 'view/assets/img/About_Picture/mbss_about12.jpg'%}" alt="img">
+
+				</div>
+			</div>
+			<div class="col-lg-6 col-md-12">
+				<div class="abt-text">
+					<p class="top-sub">Since Year 2000</p>
+					<h2>We are <span class="orange-text">MBSS</span></h2>
+					<p>The city of Cox’s Bazar is a coastal town. The district is extremely poverty and disaster
+						prone. The people have to lead
+						their life by struggling against flood, cyclone, landslides, drought, cold spell, and
+						seasonal food crisis almost every
+						year. Economy of the area is completely dependent on agriculture and fishing which cannot
+						ensure working opportunity for
+						the large number of landless day laborers round the year.</p>
+					<p>During the lean period, the people did not have any other option than selling their labor in
+						advance. Male members of
+						many families used to go to other places of the district, Basically In the sea for fishing
+						at long time, </p>
+					<a href="{% url 'about' %}" class="boxed-btn mt-4">know more</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end about section -->
+
+<!-- gallery section -->
+<div class="product-section mt-150 ">
+	<div class="container">
+		<div class="row">
+			{% if picture_title %}
+			{% for picture in picture_title %}
+			{% if picture.title%}
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="section-title">
+					<h3><span class="orange-text">Our</span> Gallery</h3>
+					<p style="word-wrap: break-word;">{{picture.title}}</p>
+				</div>
+			</div>
+			{% else %}
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="section-title">
+					<h3><span class="orange-text">Our</span> Gallery</h3>
+					<p>Mathar Bari Bohumukhi SomajKallan Sanstha (MBSS) envisions a poverty free equitable society where
+						justice, equality, human rights and dignity of all community people are ensured. </p>
+				</div>
+			</div>
+			{% endif %}
+
+			{% endfor %}
+			{% else %}
+			<div class="col-lg-8 offset-lg-2 text-center">
+				<div class="section-title">
+					<h3><span class="orange-text">Our</span> Gallery</h3>
+					<p>Mathar Bari BohumukhiSomajKallanSanstha (MBSS) envisions a poverty free equitable society where
+						justice, equality, human rights and dignity of all community people are ensured. </p>
+				</div>
+			</div>
+			{% endif %}
+		</div>
+		<div class="row gallery_slide">
+			{% if picture %}
+			{% for picture in picture %}
+			{% if picture.image%}
+			<div class="col-lg-4 col-md-6 text-center tast_slick">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{{picture.image.url}}" class=" image-popup-vertical-fit"><img
+								src="{{picture.image.url}}" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			{% else %}
+			<div class="col-lg-4 col-md-6 text-center tast_slick">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{%static 'view/assets/img/Gallery/picture/Health capm-01.jpg'%}"
+							class=" image-popup-vertical-fit"><img
+								src="{%static 'view/assets/img/Gallery/picture/Health capm-01.jpg'%}" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+			{% endif %}
+			{% endfor %}
+			{% else %}
+			<div class="col-lg-4 col-md-6 text-center tast_slick">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{%static 'view/assets/img/Gallery/picture/Health capm-01.jpg'%}"
+							class=" image-popup-vertical-fit"><img
+								src="{%static 'view/assets/img/Gallery/picture/Health capm-01.jpg'%}" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center tast_slick">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{%static 'view/assets/img/Gallery/picture/Health camp-02.jpeg'%}"
+							class=" image-popup-vertical-fit"><img
+								src="{%static 'view/assets/img/Gallery/picture/Health camp-02.jpeg'%}" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0 text-center tast_slick">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{%static 'view/assets/img/Gallery/picture/Group Meeting-01.jpg'%}"
+							class=" image-popup-vertical-fit"><img
+								src="{%static 'view/assets/img/Gallery/picture/Group Meeting-01.jpg'%}" alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 text-center tast_slick">
+				<div class="single-product-item">
+					<div class="product-image">
+						<a href="{%static 'view/assets/img/Gallery/picture/Winter cloth distribution-01.jpg'%}"
+							class=" image-popup-vertical-fit"><img
+								src="{%static 'view/assets/img/Gallery/picture/Winter cloth distribution-01.jpg'%}"
+								alt="">
+							<div class="gallary_overly">
+								<i class="fas fa-search-plus"></i>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+
+
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+
+<!-- end gallery section -->
+
+
+
+
+
+<!-- latest news -->
+<div class="latest-news pt-150 pb-150">
+	<div class="container">
+
+		<div class="row">
+			<div class="col-lg-8 offset-lg-2 text-center">
+				{% if news_title %}
+				{% for news in news_title %}
+				<div class="section-title">
+					<h3><span class="orange-text">Our</span> News</h3>
+					<p style="word-wrap: break-word;">{{news.title}}</p>
+				</div>
+				{% endfor %}
+				{% else %}
+				<div class="section-title">
+					<h3><span class="orange-text">Our</span> News</h3>
+					<p>ducation is the basic right of people that has effective influence in changing people’s behavior,
+						mindset and culture. MBSS is assisting in attaining the targets of the government ensuring
+						quality </p>
+				</div>
+				{% endif%}
+
+			</div>
+		</div>
+
+		<div class="row">
+			{% if news%}
+			{% for news in news %}
+			<div class="col-lg-4 col-md-6">
+				<div class="single-latest-news">
+					<a href="{% url 'singleNews' Id=news.id %} ">
+						<div class="latest-news-bg news-bg-1" style="background: url({{news.s_image.url}})"></div>
+					</a>
+					<div class="news-text-box">
+						<h3><a href="{% url 'singleNews' Id=news.id %}"
+								style="word-wrap: break-word;">{{news.news_title}}</a></h3>
+						<p class="blog-meta">
+							<span class="author"><i class="fas fa-user"></i> Admin</span>
+							<span class="date"><i class="fas fa-calendar"></i>{{news.date_time|date:'Y-m-D P'}}</span>
+						</p>
+						<p style="word-wrap: break-word;">{{news.news_message|slice:":50"}}</p>
+						<a href="{% url 'singleNews' Id=news.id %} " class="read-more-btn">read more <i
+								class="fas fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+			{% endfor %}
+			{% else %}
+
+			<div class="col-lg-4 col-md-6">
+				<div class="single-latest-news">
+					<a href="single-news.html">
+						<div class="latest-news-bg news-bg-1"
+							style="background: url({%static 'view/assets/img/News_Picture/Solar installation-02.jpeg'%})">
+						</div>
+					</a>
+					<div class="news-text-box">
+						<h3><a href="single-news.html">You will vainly look for fruit on it in autumn .</a></h3>
+						<p class="blog-meta">
+							<span class="author"><i class="fas fa-user"></i> Admin</span>
+							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+						</p>
+						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
+							Praesent vitae mattis nunc, egestas viverra eros mmmmmmmmmmmmmmmmmmmm.</p>
+						<a href="single-news.html" class="read-more-btn">read more <i
+								class="fas fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="single-latest-news">
+					<a href="{% url 'news' %}">
+						<div class="latest-news-bg news-bg-2"
+							style="background: url({%static 'view/assets/img/News_Picture/Solar_installation-01.jpeg'%})">
+						</div>
+					</a>
+					<div class="news-text-box">
+						<h3><a href="single-news.html">A man's worth has its season, like tomato.</a></h3>
+						<p class="blog-meta">
+							<span class="author"><i class="fas fa-user"></i> Admin</span>
+							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+						</p>
+						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
+							Praesent vitae mattis nunc, egestas viverra eros.</p>
+						<a href="single-news.html" class="read-more-btn">read more <i
+								class="fas fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
+				<div class="single-latest-news">
+					<a href="{% url 'news' %}">
+						<div class="latest-news-bg news-bg-3"
+							style="background: url({%static 'view/assets/img/News_Picture/Group Meeting-01.jpg'%})">
+						</div>
+					</a>
+					<div class="news-text-box">
+						<h3><a href="single-news.html">Good thoughts bear good fresh juicy fruit.</a></h3>
+						<p class="blog-meta">
+							<span class="author"><i class="fas fa-user"></i> Admin</span>
+							<span class="date"><i class="fas fa-calendar"></i> 27 December, 2019</span>
+						</p>
+						<p class="excerpt">Vivamus lacus enim, pulvinar vel nulla sed, scelerisque rhoncus nisi.
+							Praesent vitae mattis nunc, egestas viverra eros.</p>
+						<a href="{% url 'news' %}" class="read-more-btn">read more <i
+								class="fas fa-angle-right"></i></a>
+					</div>
+				</div>
+			</div>
+			{% endif%}
+		</div>
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<a href="{% url 'news' %}" class="boxed-btn">More News</a>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- end latest news -->
+
+{% endblock %}
+{% include 'view/include/footer.html'%}

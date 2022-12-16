@@ -1,0 +1,80 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Add Picture | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-columns" aria-hidden="true"></i><a href="{% url 'add_picture' %}">Add Picture</a>
+                </li>
+                <li><a href="{% url 'manage_picture' %}">Manage Picture</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <div class="row animated fadeInUp">
+        <!--MAX LENGTH-->
+        <div class="col-md-2"></div>
+        <div class="col-sm-6 col-md-7 ">
+            <h4 class="section-subtitle"><b>Add Picture </b></h4>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert {{message.tags}} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> {{message}}</strong>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="" method="post" action="" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Tilte</label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="title"
+                                        placeholder="Tilte" maxlength="70">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">70</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Picture</label>
+                                    <input type="file" class="form-control" id="inputMaxLength" name="image" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Image height and
+                                        width<span class="code">450 X 500</span></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Add Picture</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--INPUT MASK-->
+
+
+    {% endblock %}

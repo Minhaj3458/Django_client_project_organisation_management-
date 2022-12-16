@@ -1,0 +1,111 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Add Personal Information | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-columns" aria-hidden="true"></i><a href="{% url 'add_info' %}">Add Personal
+                        Information</a></li>
+                <li><a href="{% url 'manage_info' %}">Manage Information</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <div class="row animated fadeInUp">
+        <!--MAX LENGTH-->
+        <div class="col-md-2"></div>
+        <div class="col-sm-6 col-md-7 ">
+            <h4 class="section-subtitle"><b>Add Personal Information</b></h4>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert {{message.tags}} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> {{message}}</strong>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="" method="post" action="">
+                                {% csrf_token %}
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Email</label>
+                                    <input type="email" class="form-control" id="inputMaxLength" name="email"
+                                        placeholder="Email" maxlength="50" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">50</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Phone1</label>
+                                    <input type="number" class="form-control" id="inputMaxLength" name="phone1"
+                                        placeholder="Phone1" maxlength="15" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">15</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Phone2</label>
+                                    <input type="number" class="form-control" id="inputMaxLength" name="phone2"
+                                        placeholder="Phone2" maxlength="15" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to<span class="code">15</span></span>
+                                </div>
+
+                                <!--TEXTAREA max length-->
+                                <div class="form-group">
+                                    <label for="textareaMaxLength" class="control-label"> Address </label>
+                                    <textarea class="form-control" rows="3" id="textareaMaxLength" name="address"
+                                        placeholder="Address" maxlength="100" required></textarea>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span id="characterCount">0</span> /<span class="code">100</span></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Add Information</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--INPUT MASK-->
+
+    <script>
+
+        var inputs = document.querySelectorAll('textarea')[0],
+            characterCount = document.querySelector('#characterCount');
+
+        inputs.addEventListener('keyup', function () {
+
+
+            console.clear();
+
+            characterCount.innerHTML = inputs.value.length;
+
+        });
+    </script>
+
+    {% endblock %}

@@ -1,0 +1,116 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Add News | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-columns" aria-hidden="true"></i><a href="{% url 'add_news' %}">Add News</a></li>
+                <li><a href="{% url 'manage_news' %}">Manage News</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <div class="row animated fadeInUp">
+        <!--MAX LENGTH-->
+        <div class="col-md-2"></div>
+        <div class="col-sm-6 col-md-7 ">
+            <h4 class="section-subtitle"><b>Add News</b></h4>
+            {% if messages %}
+
+            {% for message in messages %}
+            <div class="alert {{message.tags}} alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong> {{message}}</strong>
+            </div>
+            {% endfor %}
+
+            {% endif %}
+
+            <div class="panel">
+                <div class="panel-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form class="" method="post" action="" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> Title </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="title"
+                                        placeholder="Title" maxlength="70" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">70</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label"> News Title </label>
+                                    <input type="text" class="form-control" id="inputMaxLength" name="news_title"
+                                        placeholder="News Title" maxlength="40" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span class="code">40</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Small Picture</label>
+                                    <input type="file" class="form-control" id="inputMaxLength" name="s_image" required>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Image height and
+                                        width<span class="code">200 X 365</span></span>
+                                </div>
+                                <!--INPUT max length-->
+                                <div class="form-group">
+                                    <label for="inputMaxLength" class="control-label">Large Picture</label>
+                                    <input type="file" class="form-control" id="inputMaxLength" name="l_image1">
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Image height and
+                                        width<span class="code">450 X 650</span></span>
+                                </div>
+
+                                <!--TEXTAREA max length-->
+                                <div class="form-group">
+                                    <label for="textareaMaxLength" class="control-label">News Message</label>
+                                    <textarea class="form-control" rows="3" id="textareaMaxLength" name="news_message"
+                                        placeholder="News Message" maxlength="1200" required></textarea>
+                                    <span class="help-block"><i class="fa fa-info-circle mr-xs"></i>Max characters set
+                                        to <span id="characterCount">0</span> /<span class="code">1200</span></span>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary btn-block">Add News</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--INPUT MASK-->
+
+    <script>
+
+        var inputs = document.querySelectorAll('textarea')[0],
+            characterCount = document.querySelector('#characterCount');
+
+        inputs.addEventListener('keyup', function () {
+
+
+            console.clear();
+
+            characterCount.innerHTML = inputs.value.length;
+
+        });
+    </script>
+
+    {% endblock %}

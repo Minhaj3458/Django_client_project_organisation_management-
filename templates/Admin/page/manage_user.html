@@ -1,0 +1,100 @@
+{%extends '../index.html'%}
+
+{% block title%}
+Manage Users | Mather Bari Bohumukhi Sommaj kallan Sanstha(MBSS)
+{% endblock %}
+
+{% block content%}
+
+<!-- CONTENT -->
+<!-- ========================================================= -->
+<div class="content">
+    <!-- content HEADER -->
+    <!-- ========================================================= -->
+    <div class="content-header">
+        <!-- leftside content header -->
+        <div class="leftside-content-header">
+            <ul class="breadcrumbs">
+                <li><i class="fa fa-table" aria-hidden="true"></i><a href="{% url 'manage_user' %}">Manage Users</a>
+                </li>
+                <li><a href="{% url 'add_user' %}">Add Users</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+    <!--COLUMNS HIDDEN RESPONSIVE-->
+    <div class="col-sm-12">
+        <h4 class="section-subtitle">Manage Users</h4>
+        {% if messages %}
+
+        {% for message in messages %}
+        <div class="alert {{message.tags}} alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong> {{message}}</strong>
+        </div>
+        {% endfor %}
+
+        {% endif %}
+        <div class="panel">
+            <div class="panel-content table-responsive text-nowrap">
+                <table id="responsive-table"
+                    class="data-table table table-striped table-hover responsive nowrap table-bordered " cellspacing="0"
+                    width="100%">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>UserName</th>
+                            <th>Number</th>
+                            <th>Email</th>
+                            <!--                                    <th>Password</th>-->
+                            <th>Address</th>
+                            <th>Image</th>
+                            <th>DateTime</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if  show_user  %}
+                        {% for show_user in show_user  %}
+                        <tr>
+                            <td>{{show_user.id}}</td>
+                            <td>{{show_user.name}}</td>
+                            <td>{{show_user.username}}</td>
+                            <td>{{show_user.phone}}</td>
+                            <td>{{show_user.email}}</td>
+                            <!--                                    <td>{{show_user.password}}</td>-->
+                            <td>{{show_user.address}}</td>
+                            <td><img width="80px" height="70px" src="{{show_user.image}}" alt="img"></td>
+                            <td>{{show_user.date_time}}</td>
+
+                            <td>
+                                <a href="{% url 'users_edit' Id=show_user.id %}"
+                                    class="text-info mr-xs mr-md h3 btn-loading">
+                                    <i class="fa fa-pencil"></i>
+                                </a>
+                                <a href="{% url 'user_delete' Id=show_user.id %}" class="text-danger h3">
+                                    <i class="fa fa-trash-o"></i>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% endif %}
+
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-= -->
+</div>
+
+<!-- Tabs Content -->
+
+
+
+{% endblock %}
